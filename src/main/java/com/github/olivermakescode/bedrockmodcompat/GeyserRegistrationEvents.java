@@ -6,10 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import java.util.HashMap;
-
 public class GeyserRegistrationEvents {
-    public static HashMap<String,String> itemTextures = new HashMap<>();
 
     public static void register() {
         RegistryEntryAddedCallback.event(Registry.ITEM).register((rawId, id, obj) -> {
@@ -24,7 +21,7 @@ public class GeyserRegistrationEvents {
     }
 
     public static void registerGeyserItem(Identifier id, Item item) {
-        String name = id.getNamespace();
+        String namespace = id.getNamespace();
 
     }
 

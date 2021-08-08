@@ -1,32 +1,17 @@
 package com.github.olivermakescode.bedrockmodcompat;
 
-import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.minecraft.server.MinecraftServer;
 
 public class GeyserRegistrationEvents {
+    public static MinecraftServer server;
 
     public static void register() {
-        RegistryEntryAddedCallback.event(Registry.ITEM).register((rawId, id, obj) -> {
-            if (id.getNamespace().equals("minecraft")) return;
-            registerGeyserItem(id,obj);
-
+        ServerLifecycleEvents.SERVER_STARTING.register(server -> {
+            GeyserRegistrationEvents.server = server;
         });
-        RegistryEntryAddedCallback.event(Registry.BLOCK).register((rawId, id, obj) -> {
-            if (id.getNamespace().equals("minecraft")) return;
-            registerGeyserBlock(id,obj);
+        ServerLifecycleEvents.SERVER_STOPPED.register(server -> {
+            GeyserRegistrationEvents.server = null;
         });
-    }
-
-    public static void registerGeyserItem(Identifier id, Item item) {
-        String namespace = id.getNamespace();
-
-    }
-
-    public static void registerGeyserBlock(Identifier id, Block block) {
-        String identifier = id.toString();
-
     }
 }

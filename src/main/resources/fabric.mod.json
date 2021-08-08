@@ -23,6 +23,7 @@
     ]
   },
   "mixins": [
+    "bedrockmodcompat.mixins.json"
   ],
 
   "depends": {

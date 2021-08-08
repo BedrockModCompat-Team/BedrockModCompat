@@ -4,12 +4,9 @@
     "description": "BedrockModCompat behavior pack",
     "name": "BedrockModCompat behavior pack",
     "uuid": "5a46414c-f85f-11eb-9a03-0242ac130003",
-    "version": [
-      0,
-      0,
-      1
-    ],
+    "version": [0,0,1],
     "min_engine_version": [
+      1,17
     ]
   },
   "modules": [

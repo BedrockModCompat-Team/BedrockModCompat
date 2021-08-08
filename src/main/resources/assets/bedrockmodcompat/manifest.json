@@ -8,14 +8,5 @@
     "min_engine_version": [
       1,17
     ]
-  },
-  "modules": [
-    {
-      "description": "BedrockModCompat behavior pack",
-      "type": "data",
-      "uuid": "7774e908-f85f-11eb-9a03-0242ac130003",
-      "version": [
-      ]
-    }
-  ]
+  }
 }

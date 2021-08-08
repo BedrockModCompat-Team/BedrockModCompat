@@ -20,6 +20,7 @@ public class GeyserRegistrationEvents {
     }
 
     public static void registerGeyserItem(Identifier id, Item item) {
+        String identifier = id.toString();
 
     }
 

@@ -25,6 +25,7 @@ public class GeyserRegistrationEvents {
     }
 
     public static void registerGeyserBlock(Identifier id, Block block) {
+        String identifier = id.toString();
 
     }
 }

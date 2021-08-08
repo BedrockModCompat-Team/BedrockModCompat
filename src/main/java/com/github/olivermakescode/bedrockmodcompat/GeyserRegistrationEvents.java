@@ -6,7 +6,11 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import java.util.HashMap;
+
 public class GeyserRegistrationEvents {
+    public static HashMap<String,String> itemTextures = new HashMap<>();
+
     public static void register() {
         RegistryEntryAddedCallback.event(Registry.ITEM).register((rawId, id, obj) -> {
             if (id.getNamespace().equals("minecraft")) return;
@@ -20,7 +24,7 @@ public class GeyserRegistrationEvents {
     }
 
     public static void registerGeyserItem(Identifier id, Item item) {
-        String identifier = id.toString();
+        String name = id.getNamespace();
 
     }
 

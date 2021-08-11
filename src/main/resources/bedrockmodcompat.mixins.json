@@ -4,8 +4,6 @@
   "package": "com.github.olivermakescode.bedrockmodcompat.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "GeyserResourcePackGenerator",
-    "PolyMapProviderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

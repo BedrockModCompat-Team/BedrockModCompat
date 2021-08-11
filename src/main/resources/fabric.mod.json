@@ -34,7 +34,6 @@
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16",
-    "geyser-fabric": "*",
-    "polypuck-bmc": "*"
+    "geyser-fabric": "*"
   }
 }

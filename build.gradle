@@ -22,7 +22,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Geyser-Fabric repo
-	implementation 'org.geysermc.platform:GeyserMC_Geyser-Fabric_java-1.17:1.4.0-SNAPSHOT'
+	implementation files('libs/Geyser-Fabric-1.4.0-SNAPSHOT-all.jar')
 
 	//PolyMC
 	modImplementation "com.github.TheEpicBlock:PolyMc:3.2.0"

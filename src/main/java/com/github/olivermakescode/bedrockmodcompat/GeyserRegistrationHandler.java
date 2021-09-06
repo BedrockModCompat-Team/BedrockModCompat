@@ -22,14 +22,6 @@ public class GeyserRegistrationHandler {
             GeyserRegistrationHandler.server = null;
         });
 
-        PolyMapProvider.EVENT.register(player -> GeyserConnector.getInstance().getPlayerByUuid(player.getUuid()) != null ? GEYSERMAP : null);
-
-        registerItemMappings();
-    }
-
-    public static void registerItemMappings() {
-        for (int i = 0; i <= Registry.ITEM.stream().count(); i++) {
-            ItemRegistryPopulator.externalItemRegisters.add(Registry.ITEM.getId(Registry.ITEM.get(i)).getNamespace() + ":" + Registry.ITEM.getId(Registry.ITEM.get(i)).getPath());
-        }
+        //PolyMapProvider.EVENT.register(player -> GeyserConnector.getInstance().getPlayerByUuid(player.getUuid()) != null ? GEYSERMAP : null);
     }
 }

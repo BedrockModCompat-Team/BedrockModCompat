@@ -1,12 +1,6 @@
 package com.github.olivermakescode.bedrockmodcompat;
 
 import com.google.common.collect.ImmutableMap;
-import io.github.theepicblock.polymc.api.PolyMap;
-import io.github.theepicblock.polymc.api.block.BlockPoly;
-import io.github.theepicblock.polymc.api.gui.GuiPoly;
-import io.github.theepicblock.polymc.api.item.ItemPoly;
-import io.github.theepicblock.polymc.impl.Util;
-import io.github.theepicblock.polymc.impl.poly.gui.NaiveStackListingChestPoly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
@@ -19,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
+/*
 public class GeyserPolyMap implements PolyMap {
     public HashMap<ScreenHandlerType<?>, GuiPoly> guiPolys;
 
@@ -27,7 +22,9 @@ public class GeyserPolyMap implements PolyMap {
         for (ScreenHandlerType<?> gui : Registry.SCREEN_HANDLER)
             if (!Util.isVanilla(Registry.SCREEN_HANDLER.getId(gui)))
                 guiPolys.put(gui, new NaiveStackListingChestPoly());
+
     }
+
     @Override
     public ItemStack getClientItem(ItemStack serverItem, @Nullable ServerPlayerEntity player) {
         return serverItem;
@@ -69,3 +66,4 @@ public class GeyserPolyMap implements PolyMap {
     }
 
 }
+ */

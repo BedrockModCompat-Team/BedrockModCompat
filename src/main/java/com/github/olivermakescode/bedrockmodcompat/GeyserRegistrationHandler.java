@@ -1,7 +1,5 @@
 package com.github.olivermakescode.bedrockmodcompat;
 
-import io.github.theepicblock.polymc.api.PolyMap;
-import io.github.theepicblock.polymc.api.misc.PolyMapProvider;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
@@ -12,7 +10,7 @@ import org.lwjgl.system.CallbackI;
 
 public class GeyserRegistrationHandler {
     public static MinecraftServer server;
-    public static PolyMap GEYSERMAP = new GeyserPolyMap();
+    //public static PolyMap GEYSERMAP = new GeyserPolyMap();
 
     public static void register() {
         ServerLifecycleEvents.SERVER_STARTING.register(server -> {

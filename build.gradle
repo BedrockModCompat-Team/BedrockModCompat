@@ -1,10 +1,15 @@
 plugins {
 	id 'fabric-loom' version '0.8-SNAPSHOT'
 	id 'maven-publish'
+	id 'com.github.johnrengelman.shadow' version '6.1.0'
+	id 'java'
 }
 
 sourceCompatibility = JavaVersion.VERSION_16
 targetCompatibility = JavaVersion.VERSION_16
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -12,6 +17,7 @@ group = project.maven_group
 
 repositories {
 	maven { url 'https://repo.opencollab.dev/maven-snapshots' }
+	maven { url 'https://repo.opencollab.dev/maven-releases' }
 	maven { url 'https://jitpack.io' }
 }
 
@@ -27,6 +33,11 @@ dependencies {
 	//PolyMC
 	modImplementation "com.github.TheEpicBlock:PolyMc:3.2.0"
 
+	implementation "org.json:json:20210307"
+	shadow ('org.json:json:20210307')
+
+	implementation "com.nukkitx.jackson.dataformat:jackson-dataformat-nbt:2.10.3-SNAPSHOT"
+
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
@@ -39,13 +50,21 @@ processResources {
 	}
 }
 
-tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = "UTF-8"
-	it.options.release = 16
+// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+// if it is present.
+// If you remove this task, sources will not be generated.
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = "sources"
+	from sourceSets.main.allSource
 }
 
-java {
-	withSourcesJar()
+shadowJar {
+	configurations = [project.configurations.shadow]
+}
+
+remapJar {
+	dependsOn(shadowJar)
+	input.set shadowJar.archiveFile.get()
 }
 
 jar {
